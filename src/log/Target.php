@@ -1,6 +1,5 @@
 <?php
-
-namespace baibaratsky\yii\rollbar\log;
+namespace pump\yii\rollbar\log;
 
 use Rollbar\Payload\Level;
 use Rollbar\Rollbar;
