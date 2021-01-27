@@ -1,9 +1,10 @@
 <?php
 namespace pump\yii\rollbar\web;
 
-use pump\yii\rollbar\ErrorHandlerTrait;
-
+/**
+ * For sending web errors to Rollbar
+ */
 class ErrorHandler extends \yii\web\ErrorHandler
 {
-    use ErrorHandlerTrait;
+    use \pump\yii\rollbar\ErrorHandlerTrait;
 }

@@ -1,58 +1,61 @@
 <?php
 namespace pump\yii\rollbar;
 
-use Rollbar\Rollbar as BaseRollbar;
-use Yii;
-use yii\base\BaseObject;
-
-class Rollbar extends BaseObject
+/**
+ * Custom Component to init the \Rollbar\Rollbar class using configured settings in the Yii BaseObject($config) style
+ */
+class Rollbar extends \yii\base\BaseObject
 {
     public $enabled = true;
-    public $accessToken;
-    public $baseApiUrl = 'https://api.rollbar.com/api/1/';
-    public $batchSize;
+    public $access_token;
+    public $base_api_url = 'https://api.rollbar.com/api/1/';
+    public $batch_size;
     public $batched;
     public $branch;
-    public $codeVersion;
+    public $code_version;
     public $environment;
     public $host;
-    public $includedErrno;
+    public $included_errno;
     public $logger;
-    public $personFn;
+    public $person_fn;
     public $root = '@app';
-    public $scrubFields = ['passwd', 'password', 'secret', 'auth_token', '_csrf'];
+    public $scrub_fields = ['passwd', 'password', 'secret', 'auth_token', '_csrf'];
     public $timeout = 3;
     public $proxy;
-    public $enableUtf8Sanitization = true;
+    public $enable_utf8_sanitization = true;
 
     /**
      * @var array Exceptions to be ignored by yii2-rollbar
      * Format: ['name of the exception class', 'exception_property' => ['range', 'of', 'values], ...]
      */
-    public $ignoreExceptions = [
+    public $ignore_exceptions = [
         ['yii\web\HttpException', 'statusCode' => [404]],
     ];
 
-    public function init()
+    /**
+     * Inits the \Rollbar\Rollbar static class
+     * @return void
+     */
+    public function init(): void
     {
-        BaseRollbar::init([
+        \Rollbar\Rollbar::init([
             'enabled' => $this->enabled,
-            'access_token' => $this->accessToken,
-            'base_api_url' => $this->baseApiUrl,
-            'batch_size' => $this->batchSize,
+            'access_token' => $this->access_token,
+            'base_api_url' => $this->base_api_url,
+            'batch_size' => $this->batch_size,
             'batched' => $this->batched,
             'branch' => $this->branch,
-            'code_version' => $this->codeVersion,
+            'code_version' => $this->code_version,
             'environment' => $this->environment,
             'host' => $this->host,
-            'included_errno' => $this->includedErrno,
+            'included_errno' => $this->included_errno,
             'logger' => $this->logger,
-            'person_fn' => $this->personFn,
-            'root' => !empty($this->root) ? Yii::getAlias($this->root) : null,
-            'scrub_fields' => $this->scrubFields,
+            'person_fn' => $this->person_fn,
+            'root' => !empty($this->root) ? \Yii::getAlias($this->root) : null,
+            'scrub_fields' => $this->scrub_fields,
             'timeout' => $this->timeout,
             'proxy' => $this->proxy,
-            'enable_utf8_sanitization' => $this->enableUtf8Sanitization,
+            'enable_utf8_sanitization' => $this->enable_utf8_sanitization,
         ], false, false, false);
     }
 }

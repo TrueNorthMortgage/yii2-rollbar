@@ -5,8 +5,10 @@ use Rollbar\Payload\Level;
 use Rollbar\Rollbar;
 use Yii;
 use yii\base\ErrorException;
-use yii\helpers\ArrayHelper;
 
+/**
+ * Trait for preparing and sending the report to Rollbar. Built as a trait, so both Web and Console error handlers can implement it
+ */
 trait ErrorHandlerTrait
 {
     public $rollbarComponentName = 'rollbar';
@@ -23,6 +25,10 @@ trait ErrorHandlerTrait
      */
     public $payloadDataCallback;
 
+    /**
+     * Log the given exception to Rollbar, then pass on to Yii core error handlers
+     * @param  $exception Exception to be reported to Rollbar
+     */
     public function logException($exception)
     {
         $this->logExceptionRollbar($exception);
@@ -40,7 +46,7 @@ trait ErrorHandlerTrait
                 if (is_null($payloadData)) {
                     $payloadData = $exceptionData;
                 } else {
-                    $payloadData = ArrayHelper::merge($exceptionData, $payloadData);
+                    $payloadData = \yii\helpers\ArrayHelper::merge($exceptionData, $payloadData);
                 }
             } elseif (!is_null($exceptionData)) {
                 throw new \Exception(get_class($exception) . '::rollbarPayload() returns an incorrect result');
@@ -71,7 +77,7 @@ trait ErrorHandlerTrait
 
     protected function logExceptionRollbar($exception)
     {
-        foreach (Yii::$app->get($this->rollbarComponentName)->ignoreExceptions as $ignoreRecord) {
+        foreach (Yii::$app->get($this->rollbarComponentName)->ignore_exceptions as $ignoreRecord) {
             if ($exception instanceof $ignoreRecord[0]) {
                 $ignoreException = true;
                 foreach (array_slice($ignoreRecord, 1) as $property => $range) {

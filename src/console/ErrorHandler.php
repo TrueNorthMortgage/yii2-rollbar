@@ -1,9 +1,10 @@
 <?php
 namespace pump\yii\rollbar\console;
 
-use pump\yii\rollbar\ErrorHandlerTrait;
-
+/**
+ * For sending console errors to Rollbar
+ */
 class ErrorHandler extends \yii\console\ErrorHandler
 {
-    use ErrorHandlerTrait;
+    use \pump\yii\rollbar\ErrorHandlerTrait;
 }
