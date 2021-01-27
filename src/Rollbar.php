@@ -15,7 +15,7 @@ class Rollbar extends \yii\base\BaseObject
     public $code_version;
     public $environment;
     public $host;
-    public $included_errno;
+    public $included_errno = E_ALL;
     public $logger;
     public $person_fn;
     public $root = '@app';

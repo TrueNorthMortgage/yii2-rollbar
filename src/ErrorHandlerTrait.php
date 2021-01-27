@@ -26,7 +26,7 @@ trait ErrorHandlerTrait
     public $payloadDataCallback;
 
     /**
-     * Log the given exception to Rollbar, then pass on to Yii core error handlers
+     * Log the given exception to Rollbar (triggered by yii\base\ErrorHandler::handleException), then pass on to Yii core error handlers
      * @param  $exception Exception to be reported to Rollbar
      */
     public function logException($exception)
