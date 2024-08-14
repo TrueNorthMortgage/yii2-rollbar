@@ -1,9 +1,9 @@
 {
-    "name": "pump/yii2-rollbar",
+    "name": "tnm/yii2-rollbar",
     "description": "Rollbar for Yii2 (Forked by Pump Interactive)",
     "type": "yii2-extension",
     "keywords": ["rollbar", "yii", "yii2", "log", "error", "exception", "debug", "monitoring"],
-    "homepage": "http://github.com/PumpInteractive/yii2-rollbar",
+    "homepage": "https://github.com/TrueNorthMortgage/yii2-rollbar",
     "authors": [
         {
             "name": "Sean Rabey",
