@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-            "pump\\yii\\rollbar\\": "src/"
+            "tnm\\yii\\rollbar\\": "src/"
         }
     }
 }
