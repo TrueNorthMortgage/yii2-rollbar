@@ -1,5 +1,5 @@
 {
-    "name": "tnm/yii2-rollbar",
+    "name": "truenorthmortgage/yii2-rollbar",
     "description": "Rollbar for Yii2 (Forked by Pump Interactive)",
     "type": "yii2-extension",
     "keywords": ["rollbar", "yii", "yii2", "log", "error", "exception", "debug", "monitoring"],
@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-            "tnm\\yii\\rollbar\\": "src/"
+            "truenorthmortgage\\yii\\rollbar\\": "src/"
         }
     }
 }

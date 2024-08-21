@@ -1,5 +1,5 @@
 <?php
-namespace pump\yii\rollbar\log;
+namespace truenorthmortgage\yii\rollbar\log;
 
 use yii\log\Logger;
 
