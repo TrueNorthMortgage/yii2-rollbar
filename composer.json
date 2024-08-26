@@ -6,8 +6,7 @@
     "homepage": "https://github.com/TrueNorthMortgage/yii2-rollbar",
     "authors": [
         {
-            "name": "Sean Rabey",
-            "email": "sean@hellopump.com"
+            "name": "True North Mortgage"
         }
     ],
     "require": {
