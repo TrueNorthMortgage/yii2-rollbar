@@ -8,4 +8,4 @@ See forked source for prior information [yii2-rollbart](https://github.com/baiba
 There are now two branches in the main repo: `master` for v1.x of the plugin and `v2` for v2.x of the plugin.
 
 - v1.x supports PHP versions 7.1 and later
-- v2.x supports PHP versions 8.1 and later
+- v2.x supports PHP versions 8.1 and later, with `rollbar/rollbar` versions `^3.1 || ^4.1`
